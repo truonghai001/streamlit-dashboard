@@ -56,3 +56,11 @@ feature = st.selectbox(
     ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 )
 st.line_chart(df[feature].head(sample_size))
+
+# Add radio
+species = st.radio(
+    "Select species:",
+    df['species'].unique()
+)
+filtered_df = df[df['species'] == species]
+st.dataframe(filtered_df)
