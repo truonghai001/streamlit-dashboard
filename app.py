@@ -12,3 +12,8 @@ df = pd.read_csv(IRIS_URL, names=COLUMN_NAMES)
 st.header("Step 1: Iris Dataset Loaded!")
 st.write("Here is what the data look like:")
 st.write(df.head())
+
+# Shape & Structure
+st.subheader("A quick look at dataset shape and structure")
+st.write(f"Number of rows: {df.shape[0]}")
+st.write(f"Number of columns: {df.shape[1]}")
