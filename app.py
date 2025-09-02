@@ -30,3 +30,7 @@ st.write(df.describe())
 # Value Counts (Species Distribution)
 st.subheader("Species Distribution in Iris Dataset")
 st.write(df['species'].value_counts())
+
+# expand/collaspe section - show full dataset
+with st.expander("Show full dataset"):
+    st.write(df)
