@@ -64,3 +64,13 @@ species = st.radio(
 )
 filtered_df = df[df['species'] == species]
 st.dataframe(filtered_df)
+
+# add multi-select to choose multiple species
+species_options = st.multiselect(
+    "Select species:",
+    df['species'].unique(),
+    default=df['species'].unique()
+)
+filtered_df = df[df['species'].isin(species_options)]
+st.data_editor(filtered_df)
+
