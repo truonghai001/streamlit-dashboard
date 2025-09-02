@@ -78,7 +78,7 @@ st.data_editor(filtered_df)
 with st.sidebar:
     st.header("Controls")
     sample_size = st.slider("Number of samples: ", 10, len(df), 20)
-    feature = st.selectbox("Feature: ", df.columns[-1])
+    feature = st.selectbox("Feature: ", df.columns[:-1])
     species = st.multiselect(
         "Species: ",
         df['species'].unique(),
