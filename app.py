@@ -52,7 +52,7 @@ st.line_chart(df[['sepal_length', 'sepal_width']].head(sample_size))
 
 # add selectbox
 feature = st.selectbox(
-    'Choose a feature to plot:'
+    'Choose a feature to plot:',
     ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 )
 st.line_chart(df[feature].head(sample_size))
