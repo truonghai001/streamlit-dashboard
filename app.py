@@ -74,3 +74,13 @@ species_options = st.multiselect(
 filtered_df = df[df['species'].isin(species_options)]
 st.data_editor(filtered_df)
 
+# Organize interactive elements in a sidebar
+with st.sidebar:
+    st.header("Controls")
+    sample_size = st.slider("Number of samples: ", 10, len(df), 20)
+    feature = st.selectbox("Feature: ", df.columns[-1])
+    species = st.multiselect(
+        "Species: ",
+        df['species'].unique(),
+        default=df['species'].unique()
+    )
