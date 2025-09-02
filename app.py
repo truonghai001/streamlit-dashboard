@@ -84,3 +84,9 @@ with st.sidebar:
         df['species'].unique(),
         default=df['species'].unique()
     )
+    
+# Add Titles, Headers, Subheaders and Markdown
+st.title("🌸 Iris Dataset Dashboard")
+st.header("A quick tour of flower data analysis")
+st.subheader("Visual Insights and Metrics")
+st.markdown("Hand-crafted with Streamlit.")
