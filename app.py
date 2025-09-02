@@ -26,3 +26,7 @@ st.write(df.isnull().sum())
 # Descriptive Statistics
 st.subheader("Summary Statistics")
 st.write(df.describe())
+
+# Value Counts (Species Distribution)
+st.subheader("Species Distribution in Iris Dataset")
+st.write(df['species'].value_counts())
