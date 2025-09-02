@@ -1,7 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-st.title('Hello, Streamlit Dashboard!')
+# page-wide customization
+st.set_page_config(
+    page_title="Iris Dashboard",
+    page_icon="🌼",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 # Load dataset
 IRIS_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
