@@ -39,3 +39,13 @@ with st.expander("Show full dataset"):
 st.subheader("Iris Dataset Table View")
 st.dataframe(df)
 
+# Visualizing line chart
+st.subheader("Linear Chart: Sepal Length and Width for First 20 Samples")
+st.line_chart(df[['sepal_length', 'petal_length']].head(20))
+
+# add a slider
+sample_size = st.slider(
+    "Select number of samples to display: ",
+    min_value=10, max_value=len(df), value=20
+)
+st.line_chart(df[['sepal_length', 'sepal_width']].head(sample_size))
