@@ -23,3 +23,6 @@ st.subheader("Data Types and Null Values Info")
 st.write(df.dtypes)
 st.write(df.isnull().sum())
 
+# Descriptive Statistics
+st.subheader("Summary Statistics")
+st.write(df.describe())
