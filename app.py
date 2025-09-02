@@ -17,3 +17,9 @@ st.write(df.head())
 st.subheader("A quick look at dataset shape and structure")
 st.write(f"Number of rows: {df.shape[0]}")
 st.write(f"Number of columns: {df.shape[1]}")
+
+# Data Types & Missing Values
+st.subheader("Data Types and Null Values Info")
+st.write(df.dtypes)
+st.write(df.isnull().sum())
+
