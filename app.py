@@ -96,3 +96,13 @@ st.title("🌸 Iris Dataset Dashboard")
 st.header("A quick tour of flower data analysis")
 st.subheader("Visual Insights and Metrics")
 st.markdown("Hand-crafted with Streamlit.")
+
+# Layout - columns and containers for clean organization
+col1, col2 = st.columns(2)
+with col1:
+    st.write("## Sepal Feature")
+    st.line_chart(df[["sepal_length", "sepal_width"]])
+with col2:
+    st.write("## Petal Features")
+    st.area_chart(df[["sepal_length", "sepal_width"]])
+    
