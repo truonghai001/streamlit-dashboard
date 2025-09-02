@@ -34,3 +34,8 @@ st.write(df['species'].value_counts())
 # expand/collaspe section - show full dataset
 with st.expander("Show full dataset"):
     st.write(df)
+    
+# display data table with st.dataframe()
+st.subheader("Iris Dataset Table View")
+st.dataframe(df)
+
