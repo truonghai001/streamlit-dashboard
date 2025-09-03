@@ -39,19 +39,40 @@ def filedownload(df):
 # st.set_option('deprecation.showPyplotGlobalUse', False)
 # st.markdown(filedownload(df_selected_all), unsafe_allow_html=True)
 
-def user_input_features():
-    gender = st.sidebar.selectbox('gender', ("Male", "Female"))
-    paymentMethod = st.sidebar.selectbox('PaymentMethod',('Bank transfer (automatic)', 'Credit card (automatic)', 'Mailed check', 'Electronic check'))
-    monthlyCharges = st.sidebar.slider('Monthly Charges', 18.0,118.0, 18.0)
-    tenure = st.sidebar.slider('tenure', 0.0,72.0, 0.0)
-    data = {
-        'gender': [gender],
-        'PaymentMethod': [paymentMethod],
-        'MonthlyCharges':[monthlyCharges], 
-        'tenure':[tenure],
-    }
+# def user_input_features():
+#     gender = st.sidebar.selectbox('gender', ("Male", "Female"))
+#     paymentMethod = st.sidebar.selectbox('PaymentMethod',('Bank transfer (automatic)', 'Credit card (automatic)', 'Mailed check', 'Electronic check'))
+#     monthlyCharges = st.sidebar.slider('Monthly Charges', 18.0,118.0, 18.0)
+#     tenure = st.sidebar.slider('tenure', 0.0,72.0, 0.0)
+#     data = {
+#         'gender': [gender],
+#         'PaymentMethod': [paymentMethod],
+#         'MonthlyCharges':[monthlyCharges], 
+#         'tenure':[tenure],
+#     }
     
-    features = pd.DataFrame(data)
-    return features
+#     features = pd.DataFrame(data)
+#     return features
 
-input_df = user_input_features()
+# input_df = user_input_features()
+
+# uploaded input file
+uploaded_file = st.slider.file_uploader("Upload your input CSV file", type=["csv"])
+if uploaded_file is not None:
+    input_df = pd.read_csv(uploaded_file)
+else:
+    def user_input_features():
+        gender = st.sidebar.selectbox('gender', ("Male", "Female"))
+        paymentMethod = st.sidebar.selectbox('PaymentMethod',('Bank transfer (automatic)', 'Credit card (automatic)', 'Mailed check', 'Electronic check'))
+        monthlyCharges = st.sidebar.slider('Monthly Charges', 18.0,118.0, 18.0)
+        tenure = st.sidebar.slider('tenure', 0.0,72.0, 0.0)
+        data = {
+            'gender': [gender],
+            'PaymentMethod': [paymentMethod],
+            'MonthlyCharges':[monthlyCharges], 
+            'tenure':[tenure],
+        }
+        
+        features = pd.DataFrame(data)
+        return features
+    input_df = user_input_features()
