@@ -42,10 +42,12 @@ def filedownload(df):
 def user_input_features():
     gender = st.sidebar.selectbox('gender', ("Male", "Female"))
     paymentMethod = st.sidebar.selectbox('PaymentMethod',('Bank transfer (automatic)', 'Credit card (automatic)', 'Mailed check', 'Electronic check'))
+    monthlyCharges = st.sidebar.slider('Monthly Charges', 18.0,118.0, 18.0)
     tenure = st.sidebar.slider('tenure', 0.0,72.0, 0.0)
     data = {
         'gender': [gender],
         'PaymentMethod': [paymentMethod],
+        'MonthlyCharges':[monthlyCharges], 
         'tenure':[tenure],
     }
     
