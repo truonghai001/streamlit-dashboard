@@ -6,3 +6,4 @@ pickle5
 pybase64
 seaborn
 matplotlib
+yfinance
