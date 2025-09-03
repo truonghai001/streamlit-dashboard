@@ -35,3 +35,13 @@ with st.expander("Top and bottom 10 happiness countries (2023)"):
         labels={"LLadder score": "Happiness Score", "Country name": "Country"}
     )
     st.plotly_chart(fig_top, use_container_width=True)
+    
+    st.markdown("** Bottom 10 happinest countries: **")
+    fig_bottom = px.bar(
+        bottom10,
+        x='Ladder score', y='Country name',
+        orientation='h',
+        labels={"LLadder score": "Happiness Score", "Country name": "Country"}
+    )
+    st.plotly_chart(fig_bottom, use_container_width=True)
+    
