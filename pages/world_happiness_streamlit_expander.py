@@ -15,7 +15,7 @@ DATA_FILE_URL = "https://raw.githubusercontent.com/loewenj700/global_happiness/r
 
 # load the world happiness data (all years and filter for 2023)
 df = pd.read_csv(DATA_FILE_URL)
-df_2023 = df[df['year'] == 2023]
+df_2023 = df[df['Year'] == 2023]
 
 # display data table with st.dataframe()
 st.subheader("World Happiness Dataset Table View")
