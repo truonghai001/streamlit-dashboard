@@ -45,3 +45,12 @@ with st.expander("Top and bottom 10 happiness countries (2023)"):
     )
     st.plotly_chart(fig_bottom, use_container_width=True)
     
+# add GDP vs. Happiness correlation
+with st.expander("GDP vs. Happiness Correlation"):
+    st.markdown("Scatter plot of **happiness score vs. GDP per capita** (Log Scate) for each country in 2023")
+    fig_scatter = px.scatter(
+        df_2023,
+        x="Explained by: Log GDP per capita", y='Ladder score',
+        hover_name="Country name",
+        labels={"Life Ladder": "Happiness Score", "Log GDP per capita": "GDP per Capita (log)"}
+    )
