@@ -52,6 +52,19 @@ with st.expander("GDP vs. Happiness Correlation"):
         df_2023,
         x="Explained by: Log GDP per capita", y='Ladder score',
         hover_name="Country name",
-        labels={"Life Ladder": "Happiness Score", "Log GDP per capita": "GDP per Capita (log)"}
+        labels={"Ladder score": "Happiness Score", "Log GDP per capita": "GDP per Capita (log)"}
     )
     st.plotly_chart(fig_scatter, use_container_width=True)
+    
+# Global Happiness Map (2023)
+with st.expander("Global Happiness Map (2023)"):
+    st.markdown("**Global Happiness Map (2023)** - a choropleth map where green indicates higher happiness and red indicates lower happiness.")
+    fig_map = px.choropleth(
+        df_2023,
+        locations="Country name", 
+        locationmode="country names",
+        color="Ladder score",
+        color_continuous_scale="RdYlGn",
+        labels={"Ladder score": "Happiness Score"}
+    )
+    st.plotly_chart(fig_map, use_container_width=True)
