@@ -24,8 +24,8 @@ with st.expander("World Happiness Dataset Table View"):
 # Top and bottom 10 happiness countries (2023)
 with st.expander("Top and bottom 10 happiness countries (2023)"):
     # compute top 10 and bottom 10 by happiness score
-    top10 = df_2023.nlargest(10, "Ladder score").sort_values('Life Ladder', ascending=True)
-    bottom10 = df_2023.nsmallest(10, "Ladder score").sort_values('Life Ladder', ascending=True)
+    top10 = df_2023.nlargest(10, "Ladder score").sort_values('Ladder score', ascending=True)
+    bottom10 = df_2023.nsmallest(10, "Ladder score").sort_values('Ladder score', ascending=True)
     
     st.markdown("** Top 10 happiness countries **")
     fig_top = px.bar(
