@@ -36,6 +36,6 @@ def filedownload(df):
 
     return href
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+# st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.markdown(filedownload(df_selected_all), unsafe_allow_html=True)
