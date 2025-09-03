@@ -54,3 +54,4 @@ with st.expander("GDP vs. Happiness Correlation"):
         hover_name="Country name",
         labels={"Life Ladder": "Happiness Score", "Log GDP per capita": "GDP per Capita (log)"}
     )
+    st.plotly_chart(fig_scatter, use_container_width=True)
