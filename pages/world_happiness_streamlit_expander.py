@@ -18,5 +18,20 @@ df = pd.read_csv(DATA_FILE_URL)
 df_2023 = df[df['Year'] == 2023]
 
 # display data table with st.dataframe()
-st.subheader("World Happiness Dataset Table View")
-st.dataframe(df_2023)
+with st.expander("World Happiness Dataset Table View"):
+    st.dataframe(df_2023)
+    
+# Top and bottom 10 happiness countries (2023)
+with st.expander("Top and bottom 10 happiness countries (2023)"):
+    # compute top 10 and bottom 10 by happiness score
+    top10 = df_2023.nlargest(10, "Ladder score").sort_values('Life Ladder', ascending=True)
+    bottom10 = df_2023.nsmallest(10, "Ladder score").sort_values('Life Ladder', ascending=True)
+    
+    st.markdown("** Top 10 happiness countries **")
+    fig_top = px.bar(
+        top10,
+        x='Ladder score', y='Country name',
+        orientation='h',
+        labels={"LLadder score": "Happiness Score", "Country name": "Country"}
+    )
+    st.plotly_chart(fig_top, use_container_width=True)
