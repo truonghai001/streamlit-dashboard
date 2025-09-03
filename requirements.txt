@@ -2,3 +2,6 @@ plotly
 requests_cache
 scikit-learn
 pickle
+base64
+seaborn
+matplotlib
