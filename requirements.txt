@@ -1,3 +1,4 @@
+pip
 plotly
 requests_cache
 scikit-learn
