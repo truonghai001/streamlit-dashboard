@@ -22,7 +22,8 @@ customer churn means the customer does not make another purchase after a period 
 
 """)
 
-df_selected = pd.read_csv('../ml_models/data/telco_churn.csv')
+
+df_selected = pd.read_csv('./ml_models/data/telco_churn.csv')
 df_selected_all = df_selected[['gender', 'Partner', 'Dependents', 'PhoneService','tenure', 'MonthlyCharges', 'target']].copy()
 
 st.dataframe(df_selected)
