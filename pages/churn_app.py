@@ -37,5 +37,17 @@ def filedownload(df):
     return href
 
 # st.set_option('deprecation.showPyplotGlobalUse', False)
+# st.markdown(filedownload(df_selected_all), unsafe_allow_html=True)
 
-st.markdown(filedownload(df_selected_all), unsafe_allow_html=True)
+def user_input_features():
+    gender = st.sidebar.selectbox('gender', ("Male", "Female"))
+    paymentMethod = st.sidebar.selectbox('PaymentMethod',('Bank transfer (automatic)', 'Credit card (automatic)', 'Mailed check', 'Electronic check'))
+    data = {
+        'gender': [gender],
+        'PaymentMethod': [paymentMethod,]
+    }
+    
+    features = pd.DataFrame(data)
+    return features
+
+input_df = user_input_features()
