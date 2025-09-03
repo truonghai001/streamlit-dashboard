@@ -3,6 +3,6 @@ plotly
 requests_cache
 scikit-learn
 pickle5
-base64
+pybase64
 seaborn
 matplotlib
