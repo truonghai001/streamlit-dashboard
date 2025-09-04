@@ -67,3 +67,35 @@ if numerical_cols:
         
 st.subheader("Processed Data")
 st.dataframe(df.head())
+
+
+# data visualization
+st.subheader("Data Visualization")
+
+viz_option = st.selectbox("Select Visualization", [
+    "Histogram", "Correlation Heatmap", "Boxplot", "Scatterplot"
+])
+
+if viz_option == "Histogram":
+    col = st.selectbox("Select Column", numerical_cols)
+    plt.figure(figsize=(8, 4))
+    sns.histplot(df[col], kde=True)
+    st.pyplot(plt)
+
+elif viz_option == "Correlation Heatmap":
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(df[numerical_cols].corr(), annot=True, cmap='coolwarm')
+    st.pyplot(plt)
+
+elif viz_option == "Boxplot":
+    col = st.selectbox("Select Column", numerical_cols)
+    plt.figure(figsize=(6, 4))
+    sns.boxplot(x=df[col])
+    st.pyplot(plt)
+
+elif viz_option == "Scatterplot":
+    col1 = st.selectbox("X-axis", numerical_cols, key='x')
+    col2 = st.selectbox("Y-axis", numerical_cols, key='y')
+    plt.figure(figsize=(6, 4))
+    sns.scatterplot(x=df[col1], y=df[col2])
+    st.pyplot(plt)
