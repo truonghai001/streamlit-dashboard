@@ -42,3 +42,18 @@ for year in host_years:
     fig.add_annotation(x=year, y=medal_counts[medal_counts['Year'] == year]['Total'].values[0],
                        text=f"Host Year ({year})", showarrow=True, arrowhead=2)
 st.plotly_chart(fig)
+
+# Add Host city and year as text above the chart
+host_cities_years = host_data[['Year', 'Host_city']].drop_duplicates().reset_index(drop=True)
+host_cities_years_text = ', '.join([f"{row['Host_city']} ({row['Year']})" for _, row in host_cities_years.iterrows()])
+st.write(f"**Host Cities and Years:** {host_cities_years_text}")
+
+# Highlight host years in the table
+medal_counts['Host'] = medal_counts['Year'].apply(lambda x: 'Yes' if x in host_years else 'No')
+
+st.write(f'**Summarized Medal Counts for** {host_country}')
+# Define a function to highlight the rows where the country was the host
+def highlight_hosts(s):
+    return ['background-color: yellow' if v == 'Yes' else '' for v in s]
+styled_data = medal_counts.style.apply(highlight_hosts, subset=['Host'])
+st.dataframe(styled_data)
