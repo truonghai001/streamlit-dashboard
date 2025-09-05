@@ -13,11 +13,11 @@ st.subheader("Hosted Country Impact on Olympic Medal Performance")
 # filter by host country
 host_country = st.selectbox(
     'Select Host Country',
-    sorted(data['Host_Country'].unique())
+    sorted(data['Host_country'].unique())
 )
 
 # filder data for the selected host country
-host_data = data[data['Host_Country'] == host_country]
+host_data = data[data['Host_country'] == host_country]
 country_data = data[data['Country_Name'] == host_country]
 
 # extract years the country hosted the Olympucs
